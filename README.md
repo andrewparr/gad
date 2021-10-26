@@ -1,2 +1,1 @@
-# gad
-Gimme a date!
+# Gimme a date!
