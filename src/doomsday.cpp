@@ -55,7 +55,7 @@ bool Doomsday::setDateRange(std::string_view start, std::string_view end) {
 }
 
 void Doomsday::newRandomDate() {
-    auto day_range = std::chrono::duration_cast<date::days>((date::sys_days)end_range_  - (date::sys_days)start_range_).count();
+    auto day_range = 1 + std::chrono::duration_cast<date::days>((date::sys_days)end_range_  - (date::sys_days)start_range_).count();
     uint64_t random = static_cast<uint64_t>(dist_(mt_) * day_range);
     random += std::chrono::duration_cast<date::days>(((date::sys_days)start_range_).time_since_epoch()).count();
     std::chrono::system_clock::time_point tp{std::chrono::hours{random*24}};
