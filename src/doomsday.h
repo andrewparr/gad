@@ -28,19 +28,19 @@ SOFTWARE.
 #include <date/date.h>
 
 #include <random>
-#include <string>
+#include <string_view>
 
 class Doomsday {
 public:
     Doomsday();
-    bool setDateRange(const std::string& start, const std::string& end);
+    bool setDateRange(std::string_view start, std::string_view end);
     void newRandomDate();
     std::string date();
     date::weekday day();
 
 private:
 
-    bool parseString(const std::string& str, date::year_month_day& date);
+    bool parseString(std::string_view str, date::year_month_day& date);
 
     date::year_month_day start_range_;
     date::year_month_day end_range_;

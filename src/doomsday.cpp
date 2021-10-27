@@ -40,7 +40,7 @@ Doomsday::Doomsday() :
     setDateRange(start_date, end_date);
 }
 
-bool Doomsday::setDateRange(const std::string& start, const std::string& end) {
+bool Doomsday::setDateRange(std::string_view start, std::string_view end) {
 
     if (!parseString(start, start_range_))
         return false;
@@ -62,9 +62,9 @@ void Doomsday::newRandomDate() {
     test_date_ = date::year_month_day{floor<date::days>(tp)};
 }
 
-bool Doomsday::parseString(const std::string& str, date::year_month_day& ymd) {
+bool Doomsday::parseString(std::string_view str, date::year_month_day& ymd) {
     std::cmatch result;
-    bool ret = std::regex_match(str.c_str(), result, regex_date);
+    bool ret = std::regex_match(str.begin(), str.end(), result, regex_date);
     if (!ret)
         return false;
 
