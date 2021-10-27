@@ -73,6 +73,7 @@ int main(int argc, char *argv[]) {
 
         showHeader();
         while (n--) {
+            doomsday.newRandomDate();
             std::cout << doomsday.date() << "\n";
             unsigned i;
             std::cin >> i;
